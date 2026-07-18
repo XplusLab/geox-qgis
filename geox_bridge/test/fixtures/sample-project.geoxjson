@@ -1,0 +1,658 @@
+{
+ "_format": "y-plus-1",
+ "_version": 1,
+ "exportedAt": "2026-07-13T09:00:00.000Z",
+ "project": {
+  "id": "6f1d2c3b-0000-4000-8000-000000000001",
+  "name": "Bridge fixture",
+  "createdAt": 1752300000000,
+  "updatedAt": 1752300000000,
+  "userId": null,
+  "basemap": "positron",
+  "customBasemap": null,
+  "viewState": {
+   "center": [
+    31.24,
+    30.05
+   ],
+   "zoom": 14,
+   "bearing": 0,
+   "pitch": 0
+  },
+  "layers": [
+   {
+    "id": "layer-1",
+    "name": "Districts",
+    "color": "#e41a1c",
+    "opacity": 0.85,
+    "visible": true,
+    "geomType": "polygon",
+    "data": {
+     "type": "FeatureCollection",
+     "features": [
+      {
+       "type": "Feature",
+       "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+         [
+          [
+           31.23,
+           30.04
+          ],
+          [
+           31.25,
+           30.04
+          ],
+          [
+           31.25,
+           30.06
+          ],
+          [
+           31.23,
+           30.06
+          ],
+          [
+           31.23,
+           30.04
+          ]
+         ]
+        ]
+       },
+       "properties": {
+        "name": "A",
+        "population": 1200
+       }
+      },
+      {
+       "type": "Feature",
+       "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+         [
+          [
+           31.25,
+           30.04
+          ],
+          [
+           31.27,
+           30.04
+          ],
+          [
+           31.27,
+           30.06
+          ],
+          [
+           31.25,
+           30.06
+          ],
+          [
+           31.25,
+           30.04
+          ]
+         ]
+        ]
+       },
+       "properties": {
+        "name": "B",
+        "population": 3400
+       }
+      },
+      {
+       "type": "Feature",
+       "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+         [
+          [
+           [
+            31.27,
+            30.04
+           ],
+           [
+            31.29,
+            30.04
+           ],
+           [
+            31.29,
+            30.06
+           ],
+           [
+            31.27,
+            30.06
+           ],
+           [
+            31.27,
+            30.04
+           ]
+          ]
+         ]
+        ]
+       },
+       "properties": {
+        "name": "C",
+        "population": 5100
+       }
+      }
+     ]
+    },
+    "columns": [
+     {
+      "name": "name",
+      "type": "text"
+     },
+     {
+      "name": "population",
+      "type": "number"
+     }
+    ],
+    "_drawable": false,
+    "render": "default",
+    "heatmap": {
+     "radius": 30,
+     "intensity": 1,
+     "weightColumn": null
+    },
+    "cluster": {
+     "radius": 50,
+     "maxZoom": 14
+    },
+    "style": {
+     "mode": "graduated",
+     "column": "population",
+     "classes": 3,
+     "palette": "OrRd",
+     "method": "equal",
+     "breaks": [
+      1200,
+      2500,
+      3800,
+      5100
+     ],
+     "colors": [
+      "#fee8c8",
+      "#fdbb84",
+      "#e34a33"
+     ],
+     "labels": [
+      "1200 - 2500",
+      "2500 - 3800",
+      "3800 - 5100"
+     ]
+    },
+    "filter": null,
+    "filterSpec": null,
+    "label": {
+     "column": "name",
+     "size": 12
+    }
+   },
+   {
+    "id": "layer-2",
+    "name": "Shops",
+    "color": "#377eb8",
+    "opacity": 1,
+    "visible": true,
+    "geomType": "point",
+    "data": {
+     "type": "FeatureCollection",
+     "features": [
+      {
+       "type": "Feature",
+       "geometry": {
+        "type": "Point",
+        "coordinates": [
+         31.245,
+         30.052
+        ]
+       },
+       "properties": {
+        "kind": "cafe",
+        "open": true
+       }
+      },
+      {
+       "type": "Feature",
+       "geometry": {
+        "type": "Point",
+        "coordinates": [
+         31.252,
+         30.049
+        ]
+       },
+       "properties": {
+        "kind": "market",
+        "open": false
+       }
+      },
+      {
+       "type": "Feature",
+       "geometry": {
+        "type": "Point",
+        "coordinates": [
+         31.259,
+         30.055
+        ]
+       },
+       "properties": {
+        "kind": "cafe",
+        "open": true
+       }
+      },
+      {
+       "type": "Feature",
+       "geometry": null,
+       "properties": {
+        "kind": "ghost",
+        "open": false
+       }
+      }
+     ]
+    },
+    "columns": [
+     {
+      "name": "kind",
+      "type": "text"
+     },
+     {
+      "name": "open",
+      "type": "boolean"
+     }
+    ],
+    "_drawable": false,
+    "render": "default",
+    "heatmap": {
+     "radius": 30,
+     "intensity": 1,
+     "weightColumn": null
+    },
+    "cluster": {
+     "radius": 50,
+     "maxZoom": 14
+    },
+    "style": {
+     "mode": "categorical",
+     "column": "kind",
+     "classes": 2,
+     "palette": "Set1",
+     "values": [
+      "cafe",
+      "market"
+     ],
+     "colors": [
+      "#e41a1c",
+      "#377eb8"
+     ],
+     "labels": [
+      "cafe",
+      "market"
+     ]
+    },
+    "filter": null,
+    "filterSpec": null,
+    "label": null
+   },
+   {
+    "id": "layer-3",
+    "name": "Streets",
+    "color": "#4daf4a",
+    "opacity": 0.9,
+    "visible": false,
+    "geomType": "line",
+    "data": {
+     "type": "FeatureCollection",
+     "features": [
+      {
+       "type": "Feature",
+       "geometry": {
+        "type": "LineString",
+        "coordinates": [
+         [
+          31.24,
+          30.05
+         ],
+         [
+          31.25,
+          30.051
+         ]
+        ]
+       },
+       "properties": {
+        "ss_conn": 3,
+        "ss_int_800": 1.42,
+        "ss_nach_800": 0.88
+       }
+      },
+      {
+       "type": "Feature",
+       "geometry": {
+        "type": "LineString",
+        "coordinates": [
+         [
+          31.25,
+          30.051
+         ],
+         [
+          31.26,
+          30.049
+         ]
+        ]
+       },
+       "properties": {
+        "ss_conn": 2,
+        "ss_int_800": 1.05,
+        "ss_nach_800": 0.61
+       }
+      }
+     ]
+    },
+    "columns": [
+     {
+      "name": "ss_conn",
+      "type": "number"
+     },
+     {
+      "name": "ss_int_800",
+      "type": "number"
+     },
+     {
+      "name": "ss_nach_800",
+      "type": "number"
+     }
+    ],
+    "_drawable": false,
+    "render": "default",
+    "heatmap": {
+     "radius": 30,
+     "intensity": 1,
+     "weightColumn": null
+    },
+    "cluster": {
+     "radius": 50,
+     "maxZoom": 14
+    },
+    "style": null,
+    "filter": null,
+    "filterSpec": null,
+    "label": null
+   },
+   {
+    "id": "layer-4",
+    "name": "Incidents heat",
+    "color": "#984ea3",
+    "opacity": 0.8,
+    "visible": true,
+    "geomType": "point",
+    "data": {
+     "type": "FeatureCollection",
+     "features": [
+      {
+       "type": "Feature",
+       "geometry": {
+        "type": "Point",
+        "coordinates": [
+         31.243,
+         30.047
+        ]
+       },
+       "properties": {
+        "weight": 2
+       }
+      },
+      {
+       "type": "Feature",
+       "geometry": {
+        "type": "Point",
+        "coordinates": [
+         31.247,
+         30.05
+        ]
+       },
+       "properties": {
+        "weight": 5
+       }
+      }
+     ]
+    },
+    "columns": [
+     {
+      "name": "weight",
+      "type": "number"
+     }
+    ],
+    "_drawable": false,
+    "render": "heatmap",
+    "heatmap": {
+     "radius": 24,
+     "intensity": 1,
+     "weightColumn": "weight"
+    },
+    "cluster": {
+     "radius": 50,
+     "maxZoom": 14
+    },
+    "style": null,
+    "filter": null,
+    "filterSpec": null,
+    "label": null
+   },
+   {
+    "id": "layer-5",
+    "name": "Mixed sketch",
+    "color": "#ff7f00",
+    "opacity": 1,
+    "visible": true,
+    "geomType": "mixed",
+    "data": {
+     "type": "FeatureCollection",
+     "features": [
+      {
+       "type": "Feature",
+       "geometry": {
+        "type": "Point",
+        "coordinates": [
+         31.242,
+         30.058
+        ]
+       },
+       "properties": {
+        "note": "entry"
+       }
+      },
+      {
+       "type": "Feature",
+       "geometry": {
+        "type": "LineString",
+        "coordinates": [
+         [
+          31.242,
+          30.058
+         ],
+         [
+          31.246,
+          30.06
+         ]
+        ]
+       },
+       "properties": {
+        "note": "path"
+       }
+      }
+     ]
+    },
+    "columns": [
+     {
+      "name": "note",
+      "type": "text"
+     }
+    ],
+    "_drawable": true,
+    "render": "default",
+    "heatmap": {
+     "radius": 30,
+     "intensity": 1,
+     "weightColumn": null
+    },
+    "cluster": {
+     "radius": 50,
+     "maxZoom": 14
+    },
+    "style": null,
+    "filter": null,
+    "filterSpec": null,
+    "label": null
+   },
+   {
+    "id": "layer-6",
+    "name": "Contours",
+    "color": "#8a5a2b",
+    "opacity": 1,
+    "visible": true,
+    "geomType": "line",
+    "data": {
+     "type": "FeatureCollection",
+     "features": [
+      {
+       "type": "Feature",
+       "properties": {
+        "elev": 1500
+       },
+       "geometry": {
+        "type": "LineString",
+        "coordinates": [
+         [
+          31.239,
+          30.049,
+          1500
+         ],
+         [
+          31.241,
+          30.051,
+          1500
+         ]
+        ]
+       }
+      },
+      {
+       "type": "Feature",
+       "properties": {
+        "elev": 1600
+       },
+       "geometry": {
+        "type": "LineString",
+        "coordinates": [
+         [
+          31.238,
+          30.048,
+          1600
+         ],
+         [
+          31.242,
+          30.052,
+          1600
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    "columns": [
+     {
+      "name": "elev",
+      "type": "number"
+     }
+    ],
+    "_drawable": false,
+    "render": "default",
+    "heatmap": {
+     "radius": 30,
+     "intensity": 1,
+     "weightColumn": null
+    },
+    "cluster": {
+     "radius": 50,
+     "maxZoom": 14
+    },
+    "style": null,
+    "filter": null,
+    "filterSpec": null,
+    "label": null,
+    "extrude": null
+   },
+   {
+    "id": "layer-7",
+    "name": "Buildings 3D",
+    "color": "#377eb8",
+    "opacity": 0.9,
+    "visible": true,
+    "geomType": "polygon",
+    "data": {
+     "type": "FeatureCollection",
+     "features": [
+      {
+       "type": "Feature",
+       "properties": {
+        "height_m": 24
+       },
+       "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+         [
+          [
+           31.24,
+           30.05
+          ],
+          [
+           31.2404,
+           30.05
+          ],
+          [
+           31.2404,
+           30.0503
+          ],
+          [
+           31.24,
+           30.0503
+          ],
+          [
+           31.24,
+           30.05
+          ]
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    "columns": [
+     {
+      "name": "height_m",
+      "type": "number"
+     }
+    ],
+    "_drawable": false,
+    "render": "default",
+    "heatmap": {
+     "radius": 30,
+     "intensity": 1,
+     "weightColumn": null
+    },
+    "cluster": {
+     "radius": 50,
+     "maxZoom": 14
+    },
+    "style": null,
+    "filter": null,
+    "filterSpec": null,
+    "label": null,
+    "extrude": {
+     "enabled": true,
+     "column": "height_m",
+     "scale": 1,
+     "fixedHeight": 20,
+     "base": 0
+    }
+   }
+  ]
+ }
+}

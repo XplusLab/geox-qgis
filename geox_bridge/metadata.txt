@@ -1,0 +1,17 @@
+[general]
+name=GEOX Bridge
+qgisMinimumVersion=3.28
+description=Sync and transfer projects between GEOX (xplus-studio.com/geox) and QGIS - import/export .geoxjson project bundles with styles, plus live push/pull over a local bridge.
+about=GEOX is a browser GIS for urban analysis (networks, isochrones, isovists, space syntax). This plugin moves whole projects both ways: import .geoxjson bundles as styled QGIS layers, export QGIS layers back to GEOX with graduated/categorized symbology preserved, or start the live bridge and push/pull directly from an open GEOX tab. All data is WGS84 GeoJSON; the plugin reprojects at the QGIS edge.
+version=0.2.0
+author=X+1 Studio (Ahmed Fouad Eid Ismail)
+email=ahmed_fouad@aucegypt.edu
+homepage=https://xplus-studio.com/geox
+tracker=https://github.com/XplusLab/geox-qgis/issues
+repository=https://github.com/XplusLab/geox-qgis
+tags=geojson,sync,web,export,import,style,urban,network analysis
+category=Web
+icon=ui/icons/geox.svg
+experimental=True
+deprecated=False
+hasProcessingProvider=no
