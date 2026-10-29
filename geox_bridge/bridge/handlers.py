@@ -101,7 +101,21 @@ def make_handler(state):
         def log_message(self, fmt, *args):  # silence stderr chatter
             pass
 
+        def _host_ok(self):
+            # DNS rebinding: a page on evil.example can point its own name at
+            # 127.0.0.1 and reach this server same-origin, sending no Origin
+            # header. Its requests still say "Host: evil.example", so only the
+            # loopback names are accepted. (A missing Host - HTTP/1.0 tools - passes;
+            # the pairing token is still required.)
+            host = (self.headers.get("Host") or "").strip().lower()
+            if not host:
+                return True
+            port = self.server.server_address[1]
+            return host in ("127.0.0.1:%d" % port, "localhost:%d" % port)
+
         def _origin_ok(self):
+            if not self._host_ok():
+                return False
             origin = self.headers.get("Origin")
             if origin is None:
                 return True  # non-browser client (curl, tests); token still required
@@ -125,7 +139,7 @@ def make_handler(state):
             self.wfile.write(body)
 
         def _reject_origin(self):
-            self._json(403, {"error": "origin_not_allowed"})
+            self._json(403, {"error": "origin_not_allowed" if self._host_ok() else "host_not_allowed"})
 
         def _require_session(self):
             if not state.check_session(self.headers.get("X-GEOX-Token")):

@@ -4,6 +4,7 @@ The handlers module deliberately avoids qgis imports so pairing, CORS,
 Private Network Access, body limits and routing can be tested anywhere.
 """
 
+import http.client
 import json
 import threading
 import urllib.error
@@ -87,6 +88,23 @@ def test_bad_origin_rejected(server):
     code, _, payload = request(base, "/ping", origin=BAD_ORIGIN)
     assert code == 403
     assert payload["error"] == "origin_not_allowed"
+
+
+def test_rebound_host_rejected(server):
+    # DNS rebinding: same-origin to 127.0.0.1 under a foreign name, no Origin.
+    base, state, _ = server
+    port = int(base.rsplit(":", 1)[1])
+    for method, path, body in (("GET", "/ping", None), ("POST", "/pair", {"token": state.token})):
+        conn = http.client.HTTPConnection("127.0.0.1", port, timeout=5)
+        payload = json.dumps(body).encode("utf-8") if body is not None else None
+        conn.request(method, path, body=payload, headers={"Host": "evil.example:%d" % port, "Content-Type": "application/json"})
+        resp = conn.getresponse()
+        assert resp.status == 403
+        assert json.loads(resp.read())["error"] == "host_not_allowed"
+        conn.close()
+    # The loopback names still work.
+    code, _, _ = request("http://localhost:%d" % port, "/ping", origin=None)
+    assert code == 200
 
 
 def test_preflight_private_network(server):
